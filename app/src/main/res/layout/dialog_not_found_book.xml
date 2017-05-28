@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView android:textColor="#ff2196f3"
+        android:gravity="center"
+        android:id="@+id/content"
+        android:paddingBottom="16.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Không tìm thấy sách"
+        android:textSize="18sp" />
+
+    <TextView android:gravity="center"
+        android:id="@+id/book_description"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="15dp"
+        android:text="Xin lỗi chúng tôi không tìm thấy cuốn sách bạn yêu cầu" />
+
+    <View android:background="#ffd7dbe7"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp" />
+
+    <TextView android:gravity="center"
+        android:id="@+id/btn_timlai"
+        android:background="#ff2196f3"
+        android:padding="16.0dip"
+        android:clickable="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?selectableItemBackground"
+        android:text="Tìm lại"
+        android:textSize="16sp"
+        android:onClick="onTryAgain"
+        android:textColor="#ffffff"/>
+
+</LinearLayout>

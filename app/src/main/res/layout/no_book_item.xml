@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/border"
+        android:id="@+id/item_no_book"
+        android:visibility="visible"
+        android:layout_margin="10dp">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.esp.mcbooksclone.customView.ImageViewSquare
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+            <ImageView
+                android:id="@+id/add_book"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_add_book"
+                android:layout_gravity="center"
+                />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_image"
+            android:id="@+id/add_book_item_btn"
+            android:text="Thêm mới"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:layout_below="@+id/add_book"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/item_book"
+        android:background="@drawable/rounded_image"
+        android:visibility="invisible">
+        <com.esp.mcbooksclone.customView.ImageViewSquare
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/book_cover_img"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/book_name"
+            android:text="Luyện thi Toiec cấp tốc Part 7"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+</RelativeLayout>
