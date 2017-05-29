@@ -11,17 +11,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.esp.mcbooksclone.customView.ScannerView;
 import com.google.zxing.Result;
 
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 
-public class ScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler, ScannerListener {
+public class ScannerActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler, ScannerListener {
 
     private static final int RC_HANDLE_CAMERA_PERM = 2;
-    private ZXingScannerView mScanner;
+    private ZBarScannerView mScanner;
+    private FrameLayout mCameraFrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,12 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
             requestCameraPermission();
         }
 
+        mCameraFrame = (FrameLayout) findViewById(R.id.content_frame);
 
-        mScanner = (ZXingScannerView) findViewById(R.id.scanner_view);
+
+        mScanner = new ScannerView(this);
+        mCameraFrame.addView(mScanner);
+        mCameraFrame.addView(new ScannerView.FrontCameraView(this));
         //setContentView(mScanner);
         mScanner.setResultHandler(this); // Register ourselves as a handler for scan results.
         mScanner.startCamera();          // Start camera on resume
@@ -49,13 +56,6 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         super.onResume();
         //mScanner.setResultHandler(this); // Register ourselves as a handler for scan results.
         mScanner.startCamera();          // Start camera on resume
-    }
-
-    @Override
-    public void handleResult(Result result) {
-        Toast.makeText(getBaseContext(),result.getText(),Toast.LENGTH_SHORT).show();
-
-        showDialogBookNotFound();
     }
 
     private void requestCameraPermission() {
@@ -101,5 +101,11 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    @Override
+    public void handleResult(me.dm7.barcodescanner.zbar.Result result) {
+        Toast.makeText(getBaseContext(),result.getContents(),Toast.LENGTH_SHORT).show();
+        showDialogBookNotFound();
     }
 }

@@ -33,23 +33,12 @@
         android:textColor="@color/gray"
         android:hint="Nhập barcode" />
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/content_frame">
 
-        <me.dm7.barcodescanner.zxing.ZXingScannerView
-            android:id="@+id/scanner_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            android:text="Di chuyển camera trước QR Code\n Được in phía sau mỗi cuốn sách MCBooks"
-            android:textAlignment="center"/>
-
-    </RelativeLayout>
+    </FrameLayout>
 
 
 </LinearLayout>
