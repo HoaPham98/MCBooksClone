@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UIofMCBOOK</string>
+    <string name="Hello">Chào mừng bạn đến
+        với MCBooks</string>
+    <string name="fb">Đăng Nhập Bằng Facebook</string>
+    <string name="gg">Đăng Nhập Bằng Google</string>
+</resources>
